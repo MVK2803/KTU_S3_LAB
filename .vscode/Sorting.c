@@ -38,9 +38,22 @@ void selection_sort(int A[])
         swap(A,min,i);
     }
 }
+void insertion_sort(int A[])
+{
+    for(int i=1;i<10;i++)
+    {
+        int key=A[i];
+        int j;
+        for(j=i-1;j>=0 && A[j]>key;--j)
+        {
+            A[j+1]=A[j];
+        }
+        A[j+1]=key;
+    }
+}
 void main()
 {
-    selection_sort(wc);
+    insertion_sort(wc);
     for(int i=0;i<10;++i)
     {
         printf("%d ",wc[i]);
