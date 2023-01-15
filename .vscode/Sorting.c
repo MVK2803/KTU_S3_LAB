@@ -51,9 +51,44 @@ void insertion_sort(int A[])
         A[j+1]=key;
     }
 }
+void quick_sort(int A[],int lb,int ub)
+
+{
+    if (lb<ub)
+    {
+        int i=lb;
+        int j=ub;
+        int pivot=lb;
+        printf("%d %d %d",i,j,pivot);
+        while(i<j)
+        {   //printf("true");
+            while(A[i]<=A[pivot])
+                {
+                    i++;
+                }
+            while (A[j]>A[pivot])
+                {
+                    j--;
+                }
+            if (i<j)
+                {
+                    swap(A,i,j);
+                }
+            
+            
+        }
+        if(i>j)
+        {
+            swap(A,pivot,j);
+            quick_sort(A,lb,j-1);
+            quick_sort(A,j+1,ub);
+        }
+
+    }    
+}
 void main()
 {
-    insertion_sort(wc);
+    quick_sort(wc,0,9);
     for(int i=0;i<10;++i)
     {
         printf("%d ",wc[i]);
