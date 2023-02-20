@@ -7,18 +7,16 @@ int q[5];
 
 void enq(int ele)
 {
-    if ((front==-1 && rear==-1))
-    {   
-        rear=0;
-        front=0;
-        q[rear]=ele;
-    }
-    else if(front==(rear+1)%size)
+    if (front==(rear+1)%size)
     {
-        printf("OVERFLOW\n");
+        printf("OVERFLOW");
     }
     else
-    {   
+    {
+        if (front==-1 && rear==-1)
+        {
+            front=0;
+        }
         rear=(rear+1)%size;
         q[rear]=ele;
     }
@@ -36,7 +34,7 @@ void display()
 int deq()
 {
     if ((rear==-1 && front==-1)||(front==rear))
-    {   front=-1;
+    {    front=-1;
          rear=-1;
         printf("UNDERFLOW");
         return -1;
@@ -65,7 +63,7 @@ void main()
     deq();
     enq(20);
     display();
-    
+
     
    
     
