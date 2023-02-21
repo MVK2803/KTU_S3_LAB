@@ -3,9 +3,28 @@
 int vert[10];
 int adj[10][10];
 
-
+int q[100];
+int front=-1;
+int rear=-1;
 int top=-1;
 int stack[100];
+ void enq(int ele)
+ {
+   if (front == -1 && rear == -1)
+    {
+        front=0;
+    }
+    q[++rear]=ele;
+
+}
+int deq()
+{
+    int x=q[front];
+    
+        front ++;
+
+    return x;
+}
 void push(int ele)
 { 
     
@@ -76,6 +95,41 @@ while (top != -1) {
     }
 }
 }
+void BFS(int n)
+{  int g;
+    int i;
+    int v[10];
+    for ( i = 0; i < n; ++i) {
+    v[i] = -1;}
+
+printf("ENTER STARTING NODE");
+
+scanf("%d", &g);
+for( i=0;i<n;++i){
+    if (vert[i]==g)
+    break;
+}
+
+enq(i);
+
+while (front <= rear) {
+    int x=deq();
+    if (v[x]==-1)
+    {
+        printf("%d",vert[x]);
+        v[x]=1;
+        
+        for(  i=0;i<n;++i)
+        {
+            if (adj[x][i]==1 && v[i]==-1)
+            {
+                enq(i);
+                printf("ENUQED %d",vert[i]);
+            }
+        }
+    }
+}
+}
 void main()
 {   int n;
     printf("VERTICES?: ");
@@ -100,5 +154,5 @@ void main()
         }
         printf("\n");
     }
-    DFS(n);
+    BFS(n);
 }
