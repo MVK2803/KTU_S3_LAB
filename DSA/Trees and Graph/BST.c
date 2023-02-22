@@ -45,7 +45,10 @@ int leaf(struct node * ptr)
 {
     if (ptr==NULL)
     return 0;
-    return  1+ leaf(ptr->l)+leaf(ptr->r);
+    if (ptr->l==NULL && ptr->r==NULL)
+    return 1;
+    return 
+    leaf(ptr->l)+leaf(ptr->r);
 }
 
 int main() {
