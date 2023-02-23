@@ -1,3 +1,4 @@
+package Threads;
 class odd extends Thread
 {
  Printer p;

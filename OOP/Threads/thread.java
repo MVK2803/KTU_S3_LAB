@@ -1,3 +1,4 @@
+package Threads;
 import java.util.*;
 class t2 extends Thread
 {int x;
