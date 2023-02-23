@@ -1,5 +1,3 @@
-import java.util.*;
-
 class Matrix {
     int[][] data;
     int rows;
